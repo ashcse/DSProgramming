@@ -70,18 +70,60 @@ namespace BST.InsertDelete
             return root;
         }
 
+        /// <summary>
+        /// Deletes the node with specified key from BST
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private Node DeleteUtil(Node root, int key)
         {
-            if((root == null) || (root.Data = key))
+            if((root == null))
             {
-                Node temp = root;
-                root = null;
-                return temp;
+                return null;
             }
             else if(key < root.Data)
             {
-                root.left = DeleteUtil(root.left, )
+                root.left = DeleteUtil(root.left, key);
             }
+            else if(key > root.Data)
+            {
+                root.Right = DeleteUtil(root.Right, key);
+            }
+            else
+            {
+                // if key is found then the given node has to be deleted
+                if (root.left == null || root.Right == null)
+                {
+                    // This is the case of no child or only one child
+                    Node temp = root.left != null ? root.left : root.Right;
+                    root = temp;
+                }
+                else
+                {
+                    // This is the case when there are two children of the node
+                    // find inorder successor and copy that to the current node and delete inorder successor node.
+                    Node minNode = findMin(root.Right);
+                    root.Data = minNode.Data;
+                    root.Right = DeleteUtil(root.Right, minNode.Data);
+                }               
+            }
+
+            return root;
+        }
+
+
+        /// <summary>
+        /// Finds node with minimun value in BST 
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        private Node findMin(Node root)
+        {
+            Node temp = root;
+            while(temp.left != null)
+                temp = temp.left;
+            return temp;
         }
 
         #endregion

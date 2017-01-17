@@ -11,7 +11,6 @@ namespace LinkedList
         static void Main(string[] args)
         {
             // add code for linked list
-
             //demo on sync
         }
     }
