@@ -70,6 +70,20 @@ namespace BST.InsertDelete
             return root;
         }
 
+        private Node DeleteUtil(Node root, int key)
+        {
+            if((root == null) || (root.Data = key))
+            {
+                Node temp = root;
+                root = null;
+                return temp;
+            }
+            else if(key < root.Data)
+            {
+                root.left = DeleteUtil(root.left, )
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -119,9 +133,9 @@ namespace BST.InsertDelete
         /// Api to delete a given node from BST.
         /// </summary>
         /// <param name="key"></param>
-        public void Delete(int key)
+        public Node Delete(int key)
         {
-
+            return DeleteUtil(Root, key);
         }
 
         #endregion
