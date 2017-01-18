@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BST.InsertDelete
+namespace BST.BinaryTree
 {
     /// <summary>
     /// This class represent a node in Binary search tree.
     /// </summary>
-    class Node
+    public class Node
     {
         public int Data { get; set; }
 
         public Node left { get; set; }
 
         public Node Right { get; set; }
-
     }
 
     /// <summary>
@@ -29,7 +28,7 @@ namespace BST.InsertDelete
         /// <summary>
         /// Root of this BST
         /// </summary>
-        public Node  Root { get; set; }
+        Node  Root { get; set; }
 
         #endregion 
 
@@ -349,7 +348,7 @@ namespace BST.InsertDelete
             bst.Insert(0);
 
             // Tester of inorder traversal
-            //bst.Inorder();
+            bst.Inorder();
 
             // Tester of delete method
             //bst.Delete(10);

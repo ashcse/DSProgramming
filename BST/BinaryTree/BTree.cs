@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BST.InsertDelete
+namespace BST.BinaryTree
 {
     /// <summary>
     /// This class represent Binary tree.

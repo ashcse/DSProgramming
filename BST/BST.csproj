@@ -58,9 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InsertDelete\AVLTree.cs" />
-    <Compile Include="InsertDelete\BSTOperation.cs" />
-    <Compile Include="InsertDelete\BTree.cs" />
+    <Compile Include="BinaryTree\AVLTree.cs" />
+    <Compile Include="BinaryTree\BSTOperation.cs" />
+    <Compile Include="BinaryTree\BTree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

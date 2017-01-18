@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BST.InsertDelete;
+using BST.BinaryTree;
 namespace BST
 {
-    class Program
+   public class Program
     {
-        static void Main(string[] args)
+       public static void Main()
         {
             BSTTester tester = new BSTTester();
-            tester.Test();
+            //tester.Test();
+
+
+            AVLTreeTester.Test();
             Console.ReadLine();
         }
     }
