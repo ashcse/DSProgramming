@@ -9,7 +9,7 @@ namespace BST.InsertDelete
     /// <summary>
     /// This class represent a node in Binary search tree.
     /// </summary>
-    public class Node
+    class Node
     {
         public int Data { get; set; }
 
@@ -24,9 +24,16 @@ namespace BST.InsertDelete
     /// </summary>
     public class BST
     {
+        #region fields
+
+        /// <summary>
+        /// Root of this BST
+        /// </summary>
         public Node  Root { get; set; }
 
-        #region Private Methods
+        #endregion 
+
+        #region Private helper Methods
 
         /// <summary>
         /// Inorder traversal
@@ -126,6 +133,99 @@ namespace BST.InsertDelete
             return temp;
         }
 
+        /// <summary>
+        /// This method finds inorder successor of the given node.
+        /// Algo: if node has right subtree than minimum value node in right subtree will be inorder successor.
+        ///       if node doesn't have right subtree than from root entire tree needs to be checked.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns>inorder successor node if it exists</returns>
+        private Node InorderSucc(Node node)
+        {
+            if (node.Right != null)
+            {
+                return findMin(node.Right);
+            }
+            else
+            {
+                Node succ = null;
+
+                Node rootNode = Root;
+
+                // If there is no right child then need to start from root
+                while (rootNode != null && rootNode.Data != node.Data)
+                {
+                    if (node.Data < rootNode.Data)
+                    {
+                        succ = rootNode;
+                        rootNode = rootNode.left;
+                    }
+                    else
+                    {
+                        rootNode = rootNode.Right;
+                    }
+                }
+
+                return succ;
+            }
+        }
+
+        private static Node prev = null;
+
+        /// <summary>
+        /// This method uses inorder traversal to check if this tree is BST or not. Inorder traversal always produces sorted result.
+        /// This method makes use of a static member which keeps track of last visited node in inorder traversal
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        private bool IsBSTUtil(Node root)
+        {
+            if (root == null)
+            {
+                return true;
+            }
+
+            if (!IsBSTUtil(root.left))
+            {
+                return false;
+            }
+
+            if ((BST.prev != null) && (BST.prev.Data > root.Data))
+            {
+                return false;
+            }
+            BST.prev = root;
+
+            if (!IsBSTUtil(root.Right))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// This method works base don min max value properties of BST. every node in BST is greater than maximum node in left subtree
+        /// and is less than minimum value node in right subtree.
+        /// While move down we need to narrow min max value based on currently visited node.
+        /// </summary>
+        /// <param name="rootNode"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
+        private bool IsBSTUtilWithMinMaxCheck(Node rootNode, int max, int min)
+        {
+            if (rootNode == null)
+            {
+                return true;
+            }
+            if (rootNode.Data < min || rootNode.Data > max)
+            {
+                return false;
+            }
+
+            return IsBSTUtilWithMinMaxCheck(rootNode.left, min, rootNode.Data - 1) && IsBSTUtilWithMinMaxCheck(rootNode.Right, rootNode.Data + 1, max);
+        }
+
         #endregion
 
         #region Public Methods
@@ -178,97 +278,64 @@ namespace BST.InsertDelete
         public Node Delete(int key)
         {
             return DeleteUtil(Root, key);
-        }
-
-        static Node prev = null;
+        }      
 
         /// <summary>
-        /// This method uses inorder traversal to check if this tree is BST or not. Inorder traversal always produces sorted result.
-        /// This method makes use of a static member which keeps track of last visited node in inorder traversal
+        /// Check if this tree is BST or not
         /// </summary>
-        /// <param name="root"></param>
-        /// <returns></returns>
-        private bool IsBSTUtil(Node root)
-        {            
-            if(root == null)
-            {
-                return true;
-            }
-
-            if(!IsBSTUtil(root.left))
-            {
-                return false;
-            }
-
-            if((BST.prev != null) && (BST.prev.Data> root.Data))
-            {
-                return false;
-            }
-            BST.prev = root;
-
-            if(!IsBSTUtil(root.Right))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// This method works base don min max value properties of BST. every node in BST is greater than maximum node in left subtree
-        /// and is less than minimum value node in right subtree.
-        /// While move down we need to narrow min max value based on currently visited node.
-        /// </summary>
-        /// <param name="rootNode"></param>
-        /// <param name="max"></param>
-        /// <param name="min"></param>
-        private IsBSTUtilWithMinMaxCheck(Node rootNode, int max, int min)
-        {
-            if(rootNode == null || rootNode.Data< min)
-            {
-                return true;
-            }
-        }
-
+        /// <returns>true/false - if this is a proper BST</returns>
         public bool IsBST()
         {
             prev = null;
             return IsBSTUtil(Root);
-        }
-
-        private Node InorderSucc(Node node)
+        }            
+        
+        /// <summary>
+        /// This method returns kth smallest element in this BST
+        /// </summary>
+        /// <param name="k"></param>
+        /// <returns>Kth smallest element from this tree</returns>
+        public Node kthSmallestElement(int k)
         {
-            if(node.Right != null)
+            Stack<Node> stack = new Stack<Node>();          
+            Node crowl = Root;
+            while(crowl != null)
             {
-                return findMin(node.Right);
+                stack.Push(crowl);
+                crowl = crowl.left;
             }
-            else
+
+            //Now we have smallest element node as top of stack
+
+            while ((crowl = stack.Pop())!= null)
             {
-                Node succ = null;
-
-                Node rootNode = Root;
-
-                // If there is no right child then need to start from root
-                while(rootNode != null && rootNode.Data != node.Data) 
+                if(--k == 0)
                 {
-                    if(node.Data < rootNode.Data)
+                    break;
+                }
+                else
+                {
+                    if (crowl.Right != null)
                     {
-                        succ = rootNode;
-                        rootNode = rootNode.left;
-                    }
-                    else
-                    {
-                        rootNode = rootNode.Right;              
+                        crowl = crowl.Right;
+                        while(crowl!= null)
+                        {
+                            stack.Push(crowl);
+                            crowl = crowl.left;
+                        }
                     }
                 }
-
-                return succ;
             }
-        }        
+
+            return crowl;
+        }  
 
         #endregion
     }
 
+    /// <summary>
+    /// Tester class for BST
+    /// </summary>
     public class BSTTester
     {
         public void Test()
@@ -280,13 +347,19 @@ namespace BST.InsertDelete
             bst.Insert(15);
             bst.Insert(18);
             bst.Insert(0);
-            bst.Inorder();
 
+            // Tester of inorder traversal
+            //bst.Inorder();
+
+            // Tester of delete method
             //bst.Delete(10);
 
-            Console.WriteLine(bst.IsBST());
+            // Tester of isBST check
+            //Console.WriteLine(bst.IsBST());
+            //Tester of kthj smallest element
+            //Console.WriteLine(bst.kthSmallestElement(5).Data);
 
-            bst.Inorder();
+            //bst.Inorder();
 
         }
     }
