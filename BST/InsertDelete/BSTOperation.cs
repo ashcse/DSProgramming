@@ -97,7 +97,7 @@ namespace BST.InsertDelete
                 {
                     // This is the case of no child or only one child
                     Node temp = root.left != null ? root.left : root.Right;
-                    root = temp;
+                    root = temp;                   
                 }
                 else
                 {
@@ -105,7 +105,7 @@ namespace BST.InsertDelete
                     // find inorder successor and copy that to the current node and delete inorder successor node.
                     Node minNode = findMin(root.Right);
                     root.Data = minNode.Data;
-                    root.Right = DeleteUtil(root.Right, minNode.Data);
+                    root.Right = DeleteUtil(root.Right, minNode.Data);                  
                 }               
             }
 
@@ -180,6 +180,92 @@ namespace BST.InsertDelete
             return DeleteUtil(Root, key);
         }
 
+        static Node prev = null;
+
+        /// <summary>
+        /// This method uses inorder traversal to check if this tree is BST or not. Inorder traversal always produces sorted result.
+        /// This method makes use of a static member which keeps track of last visited node in inorder traversal
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        private bool IsBSTUtil(Node root)
+        {            
+            if(root == null)
+            {
+                return true;
+            }
+
+            if(!IsBSTUtil(root.left))
+            {
+                return false;
+            }
+
+            if((BST.prev != null) && (BST.prev.Data> root.Data))
+            {
+                return false;
+            }
+            BST.prev = root;
+
+            if(!IsBSTUtil(root.Right))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// This method works base don min max value properties of BST. every node in BST is greater than maximum node in left subtree
+        /// and is less than minimum value node in right subtree.
+        /// While move down we need to narrow min max value based on currently visited node.
+        /// </summary>
+        /// <param name="rootNode"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
+        private IsBSTUtilWithMinMaxCheck(Node rootNode, int max, int min)
+        {
+            if(rootNode == null || rootNode.Data< min)
+            {
+                return true;
+            }
+        }
+
+        public bool IsBST()
+        {
+            prev = null;
+            return IsBSTUtil(Root);
+        }
+
+        private Node InorderSucc(Node node)
+        {
+            if(node.Right != null)
+            {
+                return findMin(node.Right);
+            }
+            else
+            {
+                Node succ = null;
+
+                Node rootNode = Root;
+
+                // If there is no right child then need to start from root
+                while(rootNode != null && rootNode.Data != node.Data) 
+                {
+                    if(node.Data < rootNode.Data)
+                    {
+                        succ = rootNode;
+                        rootNode = rootNode.left;
+                    }
+                    else
+                    {
+                        rootNode = rootNode.Right;              
+                    }
+                }
+
+                return succ;
+            }
+        }        
+
         #endregion
     }
 
@@ -195,6 +281,13 @@ namespace BST.InsertDelete
             bst.Insert(18);
             bst.Insert(0);
             bst.Inorder();
+
+            //bst.Delete(10);
+
+            Console.WriteLine(bst.IsBST());
+
+            bst.Inorder();
+
         }
     }
 }
