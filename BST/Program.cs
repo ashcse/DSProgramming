@@ -11,10 +11,10 @@ namespace BST
        public static void Main()
         {
             BSTTester tester = new BSTTester();
-            //tester.Test();
+            tester.Test();
 
 
-            AVLTreeTester.Test();
+            // AVLTreeTester.Test();
             Console.ReadLine();
         }
     }

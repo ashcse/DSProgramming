@@ -59,8 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryTree\AVLTree.cs" />
-    <Compile Include="BinaryTree\BSTOperation.cs" />
+    <Compile Include="BinaryTree\BST.cs" />
     <Compile Include="BinaryTree\BTree.cs" />
+    <Compile Include="BinaryTree\InPlaceMergeUsingDLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -195,6 +195,7 @@ namespace BST.BinaryTree
         {
             if (root == null)
                 return null;
+
             if (key < root.Data)
             {
                 root.Left = DeleteUtil(root.Left, key);
@@ -212,7 +213,7 @@ namespace BST.BinaryTree
                 if ((root.Left == null) || (root.Right == null))
                 {
                     AVLNode temp = (root.Left != null) ? root.Left : root.Right;
-                    return temp;
+                    root = temp;
                 }
 
                 if((root.Left != null) && (root.Right != null))
@@ -229,18 +230,31 @@ namespace BST.BinaryTree
             int balance = GetBalance(root);
 
 
-            // at this point deletion is done at root is the parent node whose child is deleted
-            // we need to perform balancing from this root onwards upward
-
-            if((balance > 1) && (GetBalance(root.Left) > 1))
+            // at this point deletion is done. root is the parent node whose child is deleted
+            // we need to perform balancing from this root upward
+            if((balance > 1) && (GetBalance(root.Left) > 0))
             {
-
+                root = RightRotate(root);
             }
 
+            if ((balance > 1) && (GetBalance(root.Left) <= 0))
+            {
+                root.Left = LeftRotate(root.Left);
+                root = RightRotate(root);
+            }
 
-            return null;
+            if((balance< -1) && (GetBalance(root.Right)<=0))
+            {
+                root = LeftRotate(root);
+            }
+            if((balance < -1) && (GetBalance(root.Right) > 0))
+            {
+                root.Right = RightRotate(root.Right);
+                root = LeftRotate(root);
+            }
 
-            
+            return root;
+                        
         }
 
         public void Delete(int key)
