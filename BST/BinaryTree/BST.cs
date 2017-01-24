@@ -460,6 +460,7 @@ namespace BST.BinaryTree
             root.Right = SortedArrayToBSTUtil(array, mid + 1, high);
             return root;            
         }
+
         /// <summary>
         /// Api to create sorted array to BST
         /// </summary>
@@ -544,12 +545,20 @@ namespace BST.BinaryTree
 
             //bst.Inorder();
 
-            //int[] array = new int[] { 2, 3, 10, 15, 20, 28 };
-            //bst.SortedArrayToBST(array);
-            //bst.Preorder();
-
     */
-            TestBSTMerge();
+            BST bst = new BST();
+            int[] array = new int[] { 2, 3, 10, 15, 20, 28 };
+            bst.SortedArrayToBST(array);
+            //bst.Preorder();
+            TraversalWithoutRecursion.InorderWithoutRecursion(bst.Root);
+            Console.WriteLine();
+            TraversalWithoutRecursion.PreorderTraversalWithoutRecusion(bst.Root);
+
+            Console.WriteLine();
+            TraversalWithoutRecursion.PostorderTraversalWithoutRecursion(bst.Root);
+
+    
+            //TestBSTMerge();
            
         }
 
