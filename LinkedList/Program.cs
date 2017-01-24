@@ -10,8 +10,28 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            // add code for linked list
-            //demo on sync
+            SLLNode root = new SLLNode { Data = 10 };
+            root.Next = new SLLNode { Data = 15 };
+            root.Next.Next = new SLLNode { Data = 20 };
+            root.Next.Next.Next = new SLLNode { Data = 25 };
+            root.Next.Next.Next.Next = new SLLNode { Data = 30 };
+
+
+            SLLNode second = new SLLNode { Data = 5 };
+            second.Next = new SLLNode { Data = 12 };
+            second.Next.Next = new SLLNode { Data = 21 };
+            second.Next.Next.Next = new SLLNode { Data = 24 };
+            second.Next.Next.Next.Next = new SLLNode { Data = 32 };
+
+            SLLNode resultList = SortedMerge.DoSortedMerge(root, second);
+
+            while (resultList != null)
+            {
+                Console.WriteLine(resultList.Data);
+                resultList = resultList.Next;
+            }
+
+            Console.ReadLine();
         }
     }
 }

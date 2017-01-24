@@ -11,8 +11,10 @@ namespace BST
        public static void Main()
         {
             BSTTester tester = new BSTTester();
-            tester.Test();
+            //tester.Test();
 
+
+            InPlaceBSTMergeTester.Test();
 
             // AVLTreeTester.Test();
             Console.ReadLine();

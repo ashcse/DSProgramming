@@ -33,7 +33,7 @@ namespace BST.BinaryTree
         /// <summary>
         /// Root of this BST
         /// </summary>
-        Node  Root { get; set; }
+        public Node  Root { get; set; }
 
         #endregion 
 
