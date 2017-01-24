@@ -10,7 +10,7 @@ namespace BST.BinaryTree
     /// This class represent Binary tree.
     /// It explains underlying concepts of binary tree by performing operations on it.
     /// </summary>
-    class BTree
+    class BinaryTree
     {
 
     }

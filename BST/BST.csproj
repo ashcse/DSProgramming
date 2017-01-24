@@ -60,7 +60,8 @@
   <ItemGroup>
     <Compile Include="BinaryTree\AVLTree.cs" />
     <Compile Include="BinaryTree\BST.cs" />
-    <Compile Include="BinaryTree\BTree.cs" />
+    <Compile Include="BinaryTree\BinaryTree.cs" />
+    <Compile Include="BinaryTree\FindIfAPairOfGivenSumExistsInBST.cs" />
     <Compile Include="BinaryTree\TraversalWithoutRecursion.cs" />
     <Compile Include="BinaryTree\InPlaceMergeUsingDLL.cs" />
     <Compile Include="Program.cs" />
