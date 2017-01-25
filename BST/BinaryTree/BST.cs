@@ -341,7 +341,7 @@ namespace BST.BinaryTree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private int GetSize(Node node)
+        public static int GetSize(Node node)
         {
             if (node == null)
                 return 0;

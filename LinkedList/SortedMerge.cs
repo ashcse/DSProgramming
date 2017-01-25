@@ -7,15 +7,6 @@ using System.Threading.Tasks;
 namespace LinkedList
 {
     /// <summary>
-    /// Singly linked list node 
-    /// </summary>
-    public class SLLNode
-    {
-        public SLLNode Next { get; set; }
-        public int Data { get; set; }
-    }   
-
-    /// <summary>
     /// This class does a sorted merge on two sorted linked lists
     /// </summary>
     public class SortedMerge

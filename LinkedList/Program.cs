@@ -10,6 +10,38 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
+            TestSLL();
+            Console.ReadLine();
+        }
+
+        public static void TestSLL()
+        {
+            SLList list = new SLList();
+            list.InsertAtBegining(10);
+            list.InsertAtBegining(20);
+            list.InsertAtBegining(30);
+            list.InsertAtBegining(20);
+            list.InsertAtBegining(10);
+          
+
+            list.Display();
+
+            ////Console.WriteLine(list.GetNthNode(5));
+
+            //Console.WriteLine(" Middle element" + list.GetMiddle().Data);
+
+            //Console.WriteLine("5th from end " + list.GetNthNodeFromEndUsingTwoPointer(1).Data);
+
+            //list.ReverseList();
+            //Console.WriteLine("Reversed list");
+            //list.Display();
+
+
+            Console.WriteLine(" is Palindrom" + list.IsPalindrom());
+        }
+
+        public static void TestSortedMerge()
+        {
             SLLNode root = new SLLNode { Data = 10 };
             root.Next = new SLLNode { Data = 15 };
             root.Next.Next = new SLLNode { Data = 20 };
@@ -30,8 +62,6 @@ namespace LinkedList
                 Console.WriteLine(resultList.Data);
                 resultList = resultList.Next;
             }
-
-            Console.ReadLine();
         }
     }
 }
