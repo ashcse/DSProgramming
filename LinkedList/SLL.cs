@@ -205,6 +205,118 @@ namespace LinkedList
             return null;
         }
 
+        /// <summary>
+        /// Without any auxiliary space. This linked list first inserts new nodes alternatively in original list and after
+        /// setting random pointers it restores original lists and cloned ist.
+        /// </summary>
+        /// <returns>cloned list</returns>
+        public SLLNode ClonewithRandomPointer()
+        {
+            // algo: create copy of the list nodes and insert copy of the node after each node 
+
+            SLLNode current = Head;
+            SLLNode clonedList = new SLLNode();
+
+            if (current == null)
+                return null;
+
+            clonedList = new SLLNode { Data = current.Data };
+            SLLNode temp = current.Next;
+            current.Next = clonedList;
+            clonedList.Next = temp;
+
+            current = current.Next.Next;
+
+            while(current != null)
+            {
+                SLLNode newNode = new SLLNode { Data = current.Data };
+                temp = current.Next;
+                current.Next = newNode;
+                newNode.Next = temp;
+                current = current.Next.Next;
+            }
+
+            // Now iterate once to set random pointers 
+            current = Head;
+
+            while(current!=null)
+            {
+                current.Next.Random = current.Random.Next;
+                current = current.Next.Next;   
+            }
+
+            current = Head;
+            SLLNode cloneCurrent = current.Next;
+            
+            while((current != null) && (cloneCurrent.Next != null))
+            {
+                current.Next = current.Next.Next;
+                cloneCurrent.Next = cloneCurrent.Next.Next;
+                current = current.Next;
+                cloneCurrent = cloneCurrent.Next;
+            }
+            cloneCurrent.Next = null;
+            current.Next = null;            
+
+            return clonedList;
+        }
+
+
+        public void DeleteAlternetNodes()
+        {
+            SLLNode current = Head;
+
+            while(current != null && current.Next != null)
+            {
+                current.Next = current.Next.Next;
+                current = current.Next;
+            }
+        }
+
+
+        public SLLNode Intersect(SLLNode head1, SLLNode head2)
+        {
+            if ((head1 == null) || (head2 == null))
+                return null;
+            if(head1.Data < head2.Data)
+                return Intersect(head1.Next, head2);
+
+            if (head1.Data > head2.Data)
+                return Intersect(head1, head2.Next);
+
+            SLLNode newNode = new SLLNode { Data = head1.Data };
+            newNode.Next = Intersect(head1.Next, head2.Next);
+
+            return newNode;
+        }
+
+        /// <summary>
+        /// This method needs to be fixed. reference swapping is not working after first swap.
+        /// </summary>
+       /* public void PairwiseSwap()
+        {
+            SLLNode current = Head;
+
+            SLLNode prev = Head;
+            SLLNode newHead = null;
+            while((current != null) && (current.Next != null))
+            {               
+                SLLNode temp = current.Next;
+                if(newHead == null)
+                {
+                    newHead = temp;
+                }
+                prev = temp;
+                current.Next = temp.Next;
+                temp.Next = current;
+
+                
+               current =          
+            }
+
+           Head = newHead;
+        }*/
+
         public void Display()
         {
             SLLNode current = Head;
@@ -224,6 +336,8 @@ namespace LinkedList
         public int Data { get; set; }
 
         public SLLNode Next { get; set; }
+
+        public SLLNode Random { get; set; }
 
         #endregion
     }

@@ -20,11 +20,17 @@ namespace LinkedList
             list.InsertAtBegining(10);
             list.InsertAtBegining(20);
             list.InsertAtBegining(30);
-            list.InsertAtBegining(20);
-            list.InsertAtBegining(10);
+            list.InsertAtBegining(40);
+            list.InsertAtBegining(50);
           
 
             list.Display();
+
+            Console.WriteLine("Swapping pairwise");
+
+
+            // To be fixed: ist.PairwiseSwap();
+            list.DeleteAlternetNodes();
 
             ////Console.WriteLine(list.GetNthNode(5));
 
@@ -34,10 +40,35 @@ namespace LinkedList
 
             //list.ReverseList();
             //Console.WriteLine("Reversed list");
-            //list.Display();
+            list.Display();
 
 
-            Console.WriteLine(" is Palindrom" + list.IsPalindrom());
+
+           // Console.WriteLine(" is Palindrom" + list.IsPalindrom());
+
+            //TestCloneRandomPointer();
+        }
+
+        public static void TestCloneRandomPointer()
+        {
+            SLLNode root = new SLLNode { Data = 10 };
+            root.Next =  new SLLNode { Data = 15 };
+            root.Next.Next = new SLLNode { Data = 25 };           
+            root.Next.Next.Next = new SLLNode { Data = 40 };
+            root.Random = root.Next.Next;
+            root.Next.Random = root;
+            root.Next.Next.Random = root.Next;
+            root.Next.Next.Next.Random = root.Next;
+
+            SLList list = new SLList { Head = root };
+            list.Display();
+
+            SLLNode result = list.ClonewithRandomPointer();
+
+
+            SLList list2 = new SLList { Head = result };
+            list2.Display();
+
         }
 
         public static void TestSortedMerge()
