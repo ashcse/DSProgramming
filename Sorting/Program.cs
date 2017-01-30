@@ -10,6 +10,17 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
+
+            int[] array = new int[] { 3, 2, 4, 1, 7, 6 };
+
+            BubbleSort.Sort( ref array);
+
+            array.ToList().ForEach(s => Console.WriteLine(s));
+            
+
+            Console.ReadLine();
+
+
         }
     }
 }
