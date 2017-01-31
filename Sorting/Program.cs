@@ -11,9 +11,13 @@ namespace Sorting
         static void Main(string[] args)
         {
 
-            int[] array = new int[] { 3, 2, 4, 1, 7, 6 };
+            int[] array = new int[] { 1, 2, 5, 3, 4 };// 3, 2, 4, 1, 7, 6 };
 
-            BubbleSort.Sort( ref array);
+            //BubbleSort.Sort( ref array);
+
+            //SelectionSort.Sort(ref array);
+            //InsertionSort.Sort(ref array);
+            QuickSortAlgo.QuickSort(ref array);
 
             array.ToList().ForEach(s => Console.WriteLine(s));
             

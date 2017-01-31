@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BubbleSort.cs" />
+    <Compile Include="InsertionSort.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickSort.cs" />
     <Compile Include="SelectionSort.cs" />
   </ItemGroup>
   <ItemGroup>
