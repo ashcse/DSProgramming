@@ -8,11 +8,10 @@ namespace BST.BinaryTree
 {
     /// <summary>
     /// This class represent Binary tree.
-    /// It explains underlying concepts of binary tree by performing operations on it.
+    /// It demonstrates underlying concepts of binary tree by performing operations on it.
     /// </summary>
     class BinaryTree
     {
-
         public static void StoreInorderTraversalIntoArray(Node root, ref int[] array, ref int index)
         {
             if (root == null)
