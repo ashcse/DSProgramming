@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralProgProblems
+namespace Hashing
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(Complexity.A2BDivideAndConquerC(2, 7));
-            //Complexity.StringPermutationUsingBacktracking(new StringBuilder("ABCD"));
-            Complexity.AllPermutationOfString("ABC");
+            //Hash.ZeroSumSubarray();
+            //Hash.CountDistinctUsingHash();
+
+            Hash.FindLongestSubarraywithContigousElements();
+
             Console.ReadLine();
         }
     }

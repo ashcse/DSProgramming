@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Sorting
 {
     /// <summary>
-    ///  Insertion sort takes maximum time if element are reverse sorted. It takes minimum time if list is already sorted O(n).
+    ///  Insertion sort takes maximum time if element are reverse sorted. It takes minimum time if list is already sorted or almost O(n).
     ///  Its good when list is almost sorted only few items are misplaced.
     /// </summary>
     public class InsertionSort
@@ -32,6 +32,11 @@ namespace Sorting
             }
         }
 
+        /// <summary>
+        /// Since insertion sort maintains sorted list at begining while processing the elements, new location to insert next element can 
+        /// be found using binary search.
+        /// </summary>
+        /// <param name="array"></param>
         public static void SortWithBinarySearch(ref int [] array)
         {
             int length = array.Length;
@@ -50,6 +55,7 @@ namespace Sorting
                 }
 
                 array[j + 1] = key;
+
             }
         }
 

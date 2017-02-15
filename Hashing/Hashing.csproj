@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4452280C-D98B-45CD-A104-3D36C1762097}</ProjectGuid>
+    <ProjectGuid>{C916BD97-76D8-4847-B0AF-D21C02FA7F28}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sorting</RootNamespace>
-    <AssemblyName>Sorting</AssemblyName>
+    <RootNamespace>Hashing</RootNamespace>
+    <AssemblyName>Hashing</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BubbleSort.cs" />
-    <Compile Include="InsertionSort.cs" />
-    <Compile Include="MergeSort.cs" />
+    <Compile Include="Hashing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuickSort.cs" />
-    <Compile Include="SelectionSort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
