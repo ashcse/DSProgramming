@@ -8,6 +8,130 @@ namespace Hashing
 {
     public class Hash
     {
+        public static void FindSubArrayWithgivenSum()
+        {
+            int[] arr = { 1, 4, 20, 3, 10, 5 };
+            int sum = 33;
+
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+
+            //int tempSum = 0;
+            
+            //for(int i =0; i< arr.Length; i++)
+            //{
+            //    tempSum += arr[i];
+            //    dict.Add(tempSum, i);
+            //}
+
+            int currSum = 0;
+
+            for(int i=0; i< arr.Length; i++)
+            {
+                currSum += arr[i];
+
+                if(currSum == sum)
+                {
+                    Console.WriteLine(string.Format("found pair {0}, {1}", 0, i));
+                    break;
+                }
+
+                int rem = currSum - sum;
+
+                if (dict.ContainsKey(rem))
+                {
+                    Console.WriteLine(string.Format(" Found pair {0}, {1}", dict[rem] + 1, i));
+                }
+                else
+                {
+                    dict.Add(currSum, i);
+                }
+            }
+        }
+
+        public static void FindAllsubarraysWithSumZero()
+        {
+            int [] arr = { 6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7 };
+            int length = arr.Length;
+            int sum = 0;
+
+            Dictionary<int, List<int>> dict = new Dictionary<int, List<int>>();
+
+            for(int i =0; i< length; i++)
+            {
+                sum += arr[i];
+
+                if(sum == 0)
+                {
+                    Console.WriteLine(" pair 0, " + i);
+                }
+
+                if (dict.ContainsKey(sum))
+                {
+                    Console.WriteLine(string.Format(" Pair {0}, {1}", dict[sum], i));
+
+                    foreach(int index in dict[sum])
+                    {
+                        Console.WriteLine(string.Format(" Pair with sum Zero {0}, {1} ", index + 1, i));
+                    }
+
+                    dict[sum].Add(i);
+
+                }
+                else
+                {
+                    dict.Add(sum, new List<int> { i });
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// it counts twice the number of pairs then finally divides by 2.
+        /// </summary>
+        public static void countPairsWithgivenSum()
+        {
+            int[] arr = { 2, 1, 1, 3 };
+            int sum = 3;
+
+            int length = arr.Length;
+
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+
+            for(int i = 0; i< length; i++)
+            {
+                if( dict.ContainsKey(arr[i]))
+                {
+                    dict[arr[i]]++;
+                }
+                else
+                {
+                    dict.Add(arr[i], 1);
+                }
+            }
+
+            int twiceCount = 0;
+            
+            for(int i = 0; i< length; i++)
+            {
+                int remainder = sum - arr[i];
+
+                if(dict.ContainsKey(remainder))
+                {
+                    twiceCount += dict[remainder];
+                }
+
+                if(arr[i] == remainder)
+                {
+                    twiceCount--;
+                }
+
+            }
+
+            twiceCount = twiceCount / 2;
+
+            Console.WriteLine(" Count of pairs =" + twiceCount);
+        }
 
         /// <summary>
         /// This function assumes that array contains distinct elements. In case of duplicate element this logic wont work

@@ -62,7 +62,10 @@ namespace Heap
 
         public int ExtractMin()
         {
-            if (heap_size < 0) { throw new IndexOutOfRangeException(); }
+            if (heap_size < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
 
             //If there is only one element
             if (heap_size == 1)
