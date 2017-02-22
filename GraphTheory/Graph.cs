@@ -108,6 +108,29 @@ namespace GraphTheory
                 }
             }
         }
+
+        public void DFS(int node)
+        {
+            bool[] visited = new bool[V];
+            DFSUtil(node, ref visited);
+        }
+
+        private void DFSUtil(int v, ref bool[] visited)
+        {
+            visited[v] = true;
+            Console.WriteLine(v);
+
+            AdjListNode current = arr[v].Head;
+            while(current != null)
+            {
+                if (visited[current.Destination] == false)
+                {
+                    DFSUtil(current.Destination, ref visited);
+                }
+
+                current = current.Next;
+            }
+        }
     }
 
     public class GraphTester
@@ -127,6 +150,7 @@ namespace GraphTheory
             graph.AddEdge(3, 4);
 
             //graph.PrintGraph();
+            graph.DFS(0);
 
             //graph.BreadthFirstSearch(0);
 
@@ -138,7 +162,10 @@ namespace GraphTheory
             g.AddEdge(2, 3);
             g.AddEdge(3, 3);
 
-            g.BreadthFirstSearch(2);
+            //g.BreadthFirstSearch(2);
+
+
+           //
 
 
         }

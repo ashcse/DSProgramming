@@ -17,10 +17,15 @@ namespace Sorting
 
             //SelectionSort.Sort(ref array);
             //InsertionSort.Sort(ref array);
-            QuickSortAlgo.QuickSort(ref array);
+            //QuickSortAlgo.QuickSort(ref array);
 
-            array.ToList().ForEach(s => Console.WriteLine(s));
-            
+            //array.ToList().ForEach(s => Console.WriteLine(s));
+
+
+            //int [] arr = { 12, 11, 13, 5, 6, 7 };
+
+            //ergeSort.Sort(ref arr, 0, arr.Length - 1);
+            MergeSortTester.Test();
 
             Console.ReadLine();
 
