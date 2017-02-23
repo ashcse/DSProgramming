@@ -28,8 +28,7 @@ namespace Heap
 
                 MaxHeap.MaxHeapify(ref array, i, 0);
             }
-        }
-       
+        }       
     }
 
     public class KLargestElements

@@ -6,6 +6,27 @@ using System.Threading.Tasks;
 
 namespace Sorting
 {
+    public class A
+    {
+        public virtual void ABC()
+        {
+            Console.WriteLine("ABC from Parent");
+        }
+
+        public void XYZ()
+        {
+            Console.WriteLine("From XYZ parent");
+        }
+    }
+
+    public class B :A
+    {
+        public override void ABC()
+        {
+            Console.WriteLine("ABC from derived");
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -25,8 +46,9 @@ namespace Sorting
             //int [] arr = { 12, 11, 13, 5, 6, 7 };
 
             //ergeSort.Sort(ref arr, 0, arr.Length - 1);
-            MergeSortTester.Test();
+            //MergeSortTester.Test();
 
+            CountingSort.Test();
             Console.ReadLine();
 
 
