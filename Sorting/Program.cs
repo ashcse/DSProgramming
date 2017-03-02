@@ -38,17 +38,20 @@ namespace Sorting
 
             //SelectionSort.Sort(ref array);
             //InsertionSort.Sort(ref array);
-            //QuickSortAlgo.QuickSort(ref array);
+            //QuickSortAlgo.Test();
+            //QuickSortWithLastElementAsPivot.Test();
 
             //array.ToList().ForEach(s => Console.WriteLine(s));
 
+            QuickSortForDoublyLinkedList.Test();
 
             //int [] arr = { 12, 11, 13, 5, 6, 7 };
 
             //ergeSort.Sort(ref arr, 0, arr.Length - 1);
             //MergeSortTester.Test();
 
-            CountingSort.Test();
+            //CountingSort.Test();
+            //RadixSortTester.Test();
             Console.ReadLine();
 
 

@@ -51,6 +51,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSort.cs" />
+    <Compile Include="QuickSortForDoublyLinkedList.cs" />
+    <Compile Include="RadixSort.cs" />
     <Compile Include="SelectionSort.cs" />
   </ItemGroup>
   <ItemGroup>
