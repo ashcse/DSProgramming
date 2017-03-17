@@ -54,6 +54,8 @@
     <Compile Include="QuickSortForDoublyLinkedList.cs" />
     <Compile Include="RadixSort.cs" />
     <Compile Include="SelectionSort.cs" />
+    <Compile Include="SortInWaveForm.cs" />
+    <Compile Include="TailRecursion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

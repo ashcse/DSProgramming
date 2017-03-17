@@ -65,7 +65,7 @@ namespace Sorting
         public static void Test()
         {
             // int[] arr = { 10, 80, 30, 90, 40, 50, 70 };
-            int[] arr = { 2, 3, 1, 9, 7 };
+            int[] arr = { 5, 3, 2, 6, 9 };// 2, 3, 1, 9, 7 };
             QuickSort(ref arr);
 
             arr.ToList().ForEach(i => Console.WriteLine(i));

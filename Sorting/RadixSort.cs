@@ -6,6 +6,61 @@ using System.Threading.Tasks;
 
 namespace Sorting
 {
+    /// <summary>
+    /// This algorithm works as follows:
+    /// 1. Convert each number into number with base n (where n is size of array)
+    /// It is definite that after converting a number which is in range within 0 to n^2-1 
+    /// first digit (least) will be at first position if D is element of array then (D/1)%n => least significant digit.
+    /// perform sorting on this digit
+    /// 
+    /// 
+    /// After first sorting perform second sorting for (D/n)%d of each element henc only two passes are required.
+    /// </summary>
+    public class SortzeroToN2Minus1Range
+    {
+        public static void Test()
+        {
+            int[] arr = { 40, 12, 45, 32, 33, 1, 22 };
+
+            Sort(ref arr);
+
+            arr.ToList().ForEach(i => Console.WriteLine(i));
+        }
+
+        public static void Sort(ref int[] arr)
+        {
+            SortUtil(ref arr, 1);
+            SortUtil(ref arr, arr.Length);
+        }
+
+        private static void SortUtil(ref int[] arr, int exp)
+        {
+            int[] temp = new int[arr.Length];
+            int n = arr.Length;
+            int[] output = new int[arr.Length];
+
+            for(int i =0; i<arr.Length; i++)
+            {
+                temp[(arr[i]/exp)%n]++;
+            }
+
+            for (int i = 1; i < n; i++)
+                temp[i] = temp[i] + temp[i - 1];
+
+            for(int i = n-1; i>=0;i--)
+            {
+                output[temp[((arr[i] / exp) % n)] - 1] = arr[i];
+                temp[(arr[i] / exp) % n]--;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = output[i];
+            }
+        }
+    }
+
+
     public class RadixSort
     {
         public static void countSort(int[] arr, int n, int exp)

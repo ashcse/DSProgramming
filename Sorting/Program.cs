@@ -6,27 +6,6 @@ using System.Threading.Tasks;
 
 namespace Sorting
 {
-    public class A
-    {
-        public virtual void ABC()
-        {
-            Console.WriteLine("ABC from Parent");
-        }
-
-        public void XYZ()
-        {
-            Console.WriteLine("From XYZ parent");
-        }
-    }
-
-    public class B :A
-    {
-        public override void ABC()
-        {
-            Console.WriteLine("ABC from derived");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -43,7 +22,7 @@ namespace Sorting
 
             //array.ToList().ForEach(s => Console.WriteLine(s));
 
-            QuickSortForDoublyLinkedList.Test();
+            //QuickSortForDoublyLinkedList.Test();
 
             //int [] arr = { 12, 11, 13, 5, 6, 7 };
 
@@ -52,9 +31,15 @@ namespace Sorting
 
             //CountingSort.Test();
             //RadixSortTester.Test();
+
+
+            //int result = TailRecursion.FactorialUsingTailRecursive(5);
+
+
+            //SortzeroToN2Minus1Range.Test();
+
+            SortInWaveForm.Test();
             Console.ReadLine();
-
-
         }
     }
 }

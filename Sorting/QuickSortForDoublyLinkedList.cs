@@ -38,10 +38,12 @@ namespace Sorting
         public DLLNode GetLastNode()
         {
             DLLNode temp = Head;
-            while(temp != null)
+            while(temp.Next != null)
             {
                 temp = temp.Next;
             }
+
+            return temp;
         }
 
         public void Display()
@@ -61,12 +63,52 @@ namespace Sorting
         public static void Sort(DLList dllList)
         {
             DLLNode lastNode = dllList.GetLastNode();
+            SortUtil(dllList.Head, lastNode);
+        }
 
-            if ((dllList.Head == null ) || (lastNode.Next == null) 
-                || (dllList.Head.Next == lastNode))
+        public static void SortUtil(DLLNode head, DLLNode last)
+        {
+            if ((head == null) || (last == null) || (head.Next == last))
                 return;
 
+            DLLNode pivotNode = Partition(head, last);
+            SortUtil(head, pivotNode.Prev);
+            SortUtil(pivotNode.Next, last);
+        }
 
+        /// <summary>
+        /// This method uses last element as pivot element for partitioning.
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="lastNode"></param>
+        /// <returns></returns>
+        private static DLLNode Partition(DLLNode head, DLLNode lastNode)
+        {
+            DLLNode current = head;
+            DLLNode pivotNode = lastNode;
+            DLLNode prev = null;
+            int temp;
+
+            while (current != pivotNode)
+            {
+                if(current.Data< pivotNode.Data)
+                {
+                    prev = (prev == null) ? head : prev.Next;                   
+
+                    temp = current.Data;
+                    current.Data = prev.Data;
+                    prev.Data = temp;
+
+                }
+                current = current.Next;
+            }
+
+            prev = (prev == null) ? head : prev.Next;
+
+            temp = prev.Data;
+            prev.Data = pivotNode.Data;
+            pivotNode.Data = temp;
+            return prev.Next;
         }
 
         public static void Test()
@@ -81,6 +123,5 @@ namespace Sorting
             Sort(list);
             list.Display();
         }
-
     }
 }

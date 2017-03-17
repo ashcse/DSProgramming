@@ -87,7 +87,7 @@ namespace Sorting
                 back = back.Next;
             }
 
-            return newHead.Next; ;
+            return newHead.Next;
         }
 
         private void FrontBackSplit(SLLNode head, ref SLLNode front, ref SLLNode back)
