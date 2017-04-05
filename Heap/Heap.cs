@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 namespace Heap
 {
     /// <summary>
-    /// A binary heap is a complete binary tree whos all levels are complete except last one. and last level has most of the nodes at left side.
+    /// A binary heap is a complete binary tree whos all levels are complete except last one. and last level
+    /// has most of the nodes at left side.
     /// A binary heap is represented by array and root element of the heap is Array[0] (zero index element).
-    /// Array[index/2] returns a parent of array[index], array[index*2] returns left child and array[index*2 +1] returns right child.
+    /// Array[index/2] returns a parent of array[index], array[index*2] returns left child and array[index*2 +1]
+    /// returns right child.
     /// 
     /// Since there are no gaps hence it can be stored inside an array. 
     /// </summary>

@@ -38,8 +38,39 @@ namespace Sorting
 
             //SortzeroToN2Minus1Range.Test();
 
-            SortInWaveForm.Test();
+            //SortInWaveForm.Test();
+
+            Test();
             Console.ReadLine();
+        }
+
+        public static void Test()
+        {
+            int[] ar = new int[] { 2, 4, 6, 8, 3 };
+            int n = ar.Length;
+
+            for (int i = 1; i < n; i++)
+            {
+                int key = ar[i];
+                int j = i - 1;
+                for (; j >= 0; j--)
+                {
+                    if (ar[j] >= key)
+                    {
+                        ar[j + 1] = ar[j];
+                    }
+                }
+
+                ar[j + 1] = key;
+
+                for (int k = 0; k < n; k++)
+                {
+                    Console.Write(ar[k] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
         }
     }
 }
