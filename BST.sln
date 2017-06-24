@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
+# Visual Studio Express 14 for Windows Desktop
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BST", "BST\BST.csproj", "{BBB2530A-7B18-428F-A3AE-94D0B2173B3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.BinaryTree", "BST\DS.BinaryTree.csproj", "{BBB2530A-7B18-428F-A3AE-94D0B2173B3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{BDD33DDB-97A8-434A-AEBA-D48C4D01411D}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTheory", "GraphTheory\GraphTheory.csproj", "{FEF168C6-DD12-4422-A8EA-D963B65C978B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicProgramming", "DynamicProgramming\DynamicProgramming.csproj", "{EE12314E-6B40-45A5-9729-82AB4E4A75FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.BinaryTree.Test", "BSTTester\DS.BinaryTree.Test.csproj", "{C134B13D-86A6-4F5E-A5EB-DD5C8920385E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{EE12314E-6B40-45A5-9729-82AB4E4A75FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE12314E-6B40-45A5-9729-82AB4E4A75FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE12314E-6B40-45A5-9729-82AB4E4A75FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C134B13D-86A6-4F5E-A5EB-DD5C8920385E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C134B13D-86A6-4F5E-A5EB-DD5C8920385E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C134B13D-86A6-4F5E-A5EB-DD5C8920385E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C134B13D-86A6-4F5E-A5EB-DD5C8920385E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

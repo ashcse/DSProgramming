@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BST.BinaryTree
+namespace DS.BinaryTree
 {
     /// <summary>
     /// This class merges two balanced BSTs using Doubly Linked List.
@@ -290,8 +290,8 @@ namespace BST.BinaryTree
 
             BST tree = new BST { Root = result };
 
-            tree.Inorder();
-            tree.Preorder();     
+            //tree.Inorder();
+            //tree.Preorder();     
         }
     }
 }
