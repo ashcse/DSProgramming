@@ -62,7 +62,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="BinaryTreeOperationsTest.cs" />
     <Compile Include="BinaryTreeTest.cs" />
+    <Compile Include="LevelOrderTraversalTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

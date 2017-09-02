@@ -63,9 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryTree\AVLTree.cs" />
+    <Compile Include="BinaryTree\BinaryTreeOperations.cs" />
     <Compile Include="BinaryTree\BinaryTreeTraversal.cs" />
     <Compile Include="BinaryTree\BinaryTree.cs" />
     <Compile Include="BinaryTree\FindIfAPairOfGivenSumExistsInBST.cs" />
+    <Compile Include="BinaryTree\LevelOrderTraversal.cs" />
     <Compile Include="BinaryTree\Node.cs" />
     <Compile Include="BinaryTree\TraversalWithoutRecursion.cs" />
     <Compile Include="BinaryTree\InPlaceMergeUsingDLL.cs" />

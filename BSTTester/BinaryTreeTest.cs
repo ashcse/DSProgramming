@@ -84,40 +84,13 @@ namespace DS.BinaryTree.Test
             BST result = merge.MergeTreesUsingArray(bst, bst1);
 
         }
+        
 
         [TestMethod]
-        public void TestStoringLevelIntoNodes()
+        public void TestGetHeight()
         {
-            BinaryTreeTraversal.StoreLevelIntoNodes(bst.Root, 1);
-        }
-
-        [TestMethod]
-        public void TestlevelOrderTraversal()
-        {
-            BinaryTreeTraversal.LevelOrderTraversalWithQueue(bst.Root);
-        }
-
-        [TestMethod]
-        public void TestPrintingLevelWiseNodesWithQueue()
-        {
-            // O(n) operation
-            BinaryTreeTraversal.PrintLevelWiseNodesUsingQueue(bst.Root);
-
-        }
-
-        /// <summary>
-        /// O(N2)
-        /// </summary>
-        [TestMethod]
-        public void TesPrintingLevelWiseNodesWithRecursion()
-        {
-           BinaryTreeTraversal.LevelOrderTraversalWithRecursion(bst.Root);
-        }
-
-        [TestMethod]
-        public void TestPrintingLevelWiseWithoutModifyingNode()
-        {
-            BinaryTreeTraversal.LevelOrderTraversalLineByLine(bst.Root);
+            int h = BinaryTreeOperations.GetHeight(bst.Root);
+            Assert.AreEqual(4, h);
         }
 
         [TestMethod]

@@ -1,9 +1,4 @@
-﻿using DS.BinaryTree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace DS.BinaryTree
 {
@@ -24,45 +19,7 @@ namespace DS.BinaryTree
             }
         }
 
-        /// <summary>
-        /// Line by line printing Binary tree without modifying Node Class
-        /// </summary>
-        /// <param name="root">Root of the tree</param>
-        public static void LevelOrderTraversalLineByLine(Node root)
-        {
-            Queue<Node> q = new Queue<Node>();
-            q.Enqueue(root);
-
-            while (true)
-            {
-                int count = q.Count;
-
-                if (count == 0)
-                {
-                    break;
-                }
-
-                while (count > 0)
-                {
-                    Node temp = q.Dequeue();
-                    Console.Write(" " + temp.Data);
-
-                    if (temp.left != null)
-                    {
-                        q.Enqueue(temp.left);
-                    }
-
-                    if (temp.Right != null)
-                    {
-                        q.Enqueue(temp.Right);
-                    }
-
-                    count--;
-                }
-
-                Console.WriteLine();
-            }
-        }
+        
 
         /// <summary>
         /// Preorder traversal
@@ -79,129 +36,7 @@ namespace DS.BinaryTree
             Preorder(root.Right);
         }       
 
-        public static void LevelOrderTraversalWithRecursion(Node root)
-        {
-            if (root == null)
-                return;
-
-            int height = CalculateHeight(root);
-
-            for (int i = 1; i <= height; i++)
-            {
-                LevelOrderTraversalWithRecursion(root, i);
-                Console.WriteLine();
-            }
-        }
-
-        private static void LevelOrderTraversalWithRecursion(Node root, int i)
-        {
-            if (root == null)
-                return;
-
-            if (i == 1)
-            {
-                Console.Write(" " + root.Data);
-            }
-            else
-            {
-                LevelOrderTraversalWithRecursion(root.left, i - 1);
-                LevelOrderTraversalWithRecursion(root.Right, i - 1);
-            }
-        }
-
-        private static int CalculateHeight(Node root)
-        {
-            if (root == null)
-            {
-                return 0;
-            }
-            else
-            {
-                var leftheight = CalculateHeight(root.left);
-                var righHeight = CalculateHeight(root.Right);
-
-                return 1 + ((leftheight > righHeight) ? leftheight : righHeight);
-
-            }
-        }
-
-        public static void PrintLevelWiseNodesUsingQueue(Node root)
-        {
-            if (root == null)
-                return;
-
-            StoreLevelIntoNodes(root, 1);
-
-            Queue<Node> queue = new Queue<Node>();
-            queue.Enqueue(root);
-            Node prevNode = null;
-
-            while (queue.Count > 0)
-            {
-                Node temp = queue.Dequeue();
-
-
-                if ((prevNode != null) && (prevNode.Level != temp.Level))
-                {
-                    Console.WriteLine();
-                }
-
-                Console.Write(" " + temp.Data);
-
-                prevNode = temp;
-
-                if (temp.left != null)
-                {
-                    queue.Enqueue(temp.left);
-
-                }
-
-                if (temp.Right != null)
-                {
-                    queue.Enqueue(temp.Right);
-                }
-            }
-        }
-
-        public static void LevelOrderTraversalWithQueue(Node root)
-        {
-            if (root == null)
-                return;
-
-            Queue<Node> queue = new Queue<Node>();
-            queue.Enqueue(root);
-
-            while (queue.Count > 0)
-            {
-                Node temp = queue.Dequeue();
-
-                Console.WriteLine(temp.Data);
-
-                if (temp.left != null)
-                {
-                    queue.Enqueue(temp.left);
-
-                }
-
-                if (temp.Right != null)
-                {
-                    queue.Enqueue(temp.Right);
-                }
-            }
-
-        }
-
-        public static void StoreLevelIntoNodes(Node root, int i)
-        {
-            if (root == null)
-                return;
-
-            root.Level = i;
-
-            StoreLevelIntoNodes(root.left, i + 1);
-            StoreLevelIntoNodes(root.Right, i + 1);
-        }
-
+       
 
         public static void StoreInorderTraversalIntoArray(Node root, ref int[] array, ref int index)
         {
@@ -211,6 +46,47 @@ namespace DS.BinaryTree
             StoreInorderTraversalIntoArray(root.left, ref array, ref index);
             array[index++] = root.Data;
             StoreInorderTraversalIntoArray(root.Right, ref array, ref index);
+        }
+       
+
+        public static void InorderWithoutRecursionAndStack(Node root)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            Node current = root;
+            Node prev = null;
+
+
+            while(current != null)
+            {
+                if(current.left == null)
+                {
+                    Console.WriteLine(current.Data);
+                    //prev = current;
+                    if (current.Right != null)
+                    {
+                        current = current.Right;
+                       // prev.Right = null;
+                    }
+                    else
+                    {
+                        //Console.WriteLine(current.Data);
+                        current.Right = prev;
+
+                        current = current.Right;
+                       // prev = current;
+                    }
+                }
+                else
+                {
+                    //prev = current;
+                    current = current.left;
+                }
+            }
+
         }
 
     }

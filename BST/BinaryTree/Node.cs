@@ -17,7 +17,8 @@ namespace DS.BinaryTree
 
         public Node Right { get; set; }
 
-        public int Level { get; set; }
+        public Node NextRight { get; set; }
 
+        public int Level { get; set; }
     }
 }
