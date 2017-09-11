@@ -15,7 +15,7 @@ namespace Sorting
     /// Merge sort is a divide and conquer algorithm. It divides the array into two halves, calls merge sort
     /// on both parts and merges them.
     /// Recurrence relation:
-    /// T(n) = T(/2) + T(n/2) + n => 2T(n/2) + n
+    /// T(n) = T(n/2) + T(n/2) + n => 2T(n/2) + n
     /// total time for two half items and then merge routine which is will iterate each element once
     /// keep substituting the complexities
     /// T(n/2) = 2^2T(n/2^2) + 2n

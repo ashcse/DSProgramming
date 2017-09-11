@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 namespace Sorting
 {
     /// <summary> 
-    /// Its divide and conquer algorithm. In worst case it give O(n2) complexity and in best case it gives O(nlogn).
+    /// Its divide and conquer algorithm. 
+    /// In worst case it give O(n2) complexity and in best case it gives O(nlogn).
     /// Complexity depends on which item is picked as pivot.
     /// -- If pivot is picked as last element
     /// -- If pivot is picked as first element 
     /// -- if pivot is picked random element
     /// -- If pivot is picked as medion of first, middle and last element.
     /// -- Worst cases occure when pivot is alwasy largest or smallest element of the array in that case comparision 
-    ///needs to be travers entire array once for each iteration
+    ///needs to traverse entire array for each iteration
     /// </summary>
     public class QuickSortAlgo
     {
@@ -60,19 +61,7 @@ namespace Sorting
             }
 
             return low;
-        }
-
-        public static void Test()
-        {
-            // int[] arr = { 10, 80, 30, 90, 40, 50, 70 };
-            int[] arr = { 5, 3, 2, 6, 9 };// 2, 3, 1, 9, 7 };
-            QuickSort(ref arr);
-
-            arr.ToList().ForEach(i => Console.WriteLine(i));
-
-            Console.ReadLine();
-
-        }
+        }       
     }
 
     public class QuickSortWithLastElementAsPivot

@@ -140,6 +140,15 @@ namespace LinkedList
             return 0;
         }
 
+        public static void Print(SLLNode head)
+        {
+            while (head != null)
+            {
+                Console.Write(head.Data + " ");
+                head = head.Next;            
+            }
+        }
+
         public void ReverseList()
         {
             SLLNode current = Head;
@@ -158,7 +167,7 @@ namespace LinkedList
             Head = prev;
         }
 
-        public void RecursiveReverse(SLLNode head)
+        public static void RecursiveReverse(ref SLLNode head)
         {
             if (head == null)
                 return;
@@ -166,7 +175,7 @@ namespace LinkedList
             SLLNode first = head;
             SLLNode rest = first.Next;
 
-            RecursiveReverse(rest);
+            RecursiveReverse(ref rest);
 
             if (rest != null)
             {

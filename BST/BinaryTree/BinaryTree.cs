@@ -8,23 +8,16 @@ namespace DS.BinaryTree
     public class BST
     {
         #region fields
-
-        /// <summary>
-        /// Root of this BST
-        /// </summary>
+               
         public Node  Root { get; set; }
 
         #endregion 
 
         #region Private helper Methods
 
-
         /// <summary>
         /// Utility function which actually inserts node into BST
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="root"></param>
-        /// <returns></returns>
+        /// </summary>       
         private Node InsertUtil(int key, Node root = null)
         {
             if (root == null)
@@ -96,8 +89,6 @@ namespace DS.BinaryTree
         {
             return DeleteUtil(Root, key);
         }
-
-
 
         /// <summary>
         /// Finds node with minimun value in BST 

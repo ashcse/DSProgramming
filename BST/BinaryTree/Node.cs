@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DS.BinaryTree
+﻿namespace DS.BinaryTree
 {
     /// <summary>
     /// This class represent a node in Binary search tree.

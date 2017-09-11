@@ -5,8 +5,6 @@ namespace DS.BinaryTree
 {
     public class TraversalWithoutRecursion
     {
-
-
         public static void InorderWithoutRecursion(Node root)
         {
             bool done = false;

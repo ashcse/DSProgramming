@@ -136,5 +136,57 @@ namespace DS.BinaryTree
         #endregion
 
 
+        public static Node ConstructFromInAndPre(int[] inorder, int[] pre, int l, int r, 
+                                                ref int preIndex)
+        {
+            if (l > r)
+                return null;
+
+            Node root = new Node { Data = pre[preIndex++] };
+            int index = Search(inorder, l, r, root.Data);
+            
+            if (l == r)
+                return root;            
+
+            root.left = ConstructFromInAndPre(inorder, pre, l, index - 1, ref preIndex);
+            root.Right = ConstructFromInAndPre(inorder, pre, index+1, r, ref preIndex);
+
+            return root;
+        }
+
+        public static void PrintPostOrderFromInAndPre(int[] inorder, int[] pre, int l, int r,
+                                               ref int preIndex)
+        {
+            if (l > r)
+                return;
+
+            int data = pre[preIndex++];
+
+            int index = Search(inorder, l, r, data); 
+
+            if(l == r)
+            {
+                Console.WriteLine(data);
+                return;
+            }
+
+            PrintPostOrderFromInAndPre(inorder, pre, l, index - 1, ref preIndex);
+            PrintPostOrderFromInAndPre(inorder, pre, index+1, r, ref preIndex);
+
+            Console.WriteLine(data);
+        }
+
+        private static int Search(int[] inorder, int l, int r, int v)
+        {
+            for (int i = l; i < r; i++)
+            {
+                if(inorder[i] == v)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
     }
 }

@@ -3,10 +3,7 @@
 namespace DS.BinaryTree
 {
     public class BinaryTreeTraversal
-    {
-        /// <summary>
-        /// Public function for Inorder Traversal.
-        /// </summary>
+    {      
         public static void Inorder(Node root)
         {
             if (root != null)
@@ -18,13 +15,7 @@ namespace DS.BinaryTree
                 Inorder(root.Right);
             }
         }
-
-        
-
-        /// <summary>
-        /// Preorder traversal
-        /// </summary>
-        /// <param name="root"></param>
+       
         private void Preorder(Node root)
         {
             if (root == null)
@@ -34,9 +25,7 @@ namespace DS.BinaryTree
             Console.WriteLine(root.Data);
             Preorder(root.left);
             Preorder(root.Right);
-        }       
-
-       
+        }              
 
         public static void StoreInorderTraversalIntoArray(Node root, ref int[] array, ref int index)
         {
@@ -90,4 +79,7 @@ namespace DS.BinaryTree
         }
 
     }
+
+  
+
 }

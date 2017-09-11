@@ -9,7 +9,8 @@ namespace Sorting
     public class BubbleSort
     {
         /// <summary>
-        /// This is the raw bubble sort algorithm whch doesnt has any optimization. It can be optimized by breaking from the loop in 
+        /// This is the raw bubble sort algorithm whch doesnt has any optimization. 
+        /// It can be optimized by breaking from the loop in 
         /// case if there are no swap operation.
         /// This is an in place sorting algorithm. In best case it takes O(n) time; when list is already sorted.
         /// </summary>

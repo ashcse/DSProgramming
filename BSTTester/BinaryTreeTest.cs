@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DS.BinaryTree.Test
-{  
+{
     [TestClass]
     public class BSTTest
     {   
         public BST bst { get; set; }
-        
+
         [TestInitialize]
         public void Initialize()
         {
@@ -34,6 +33,25 @@ namespace DS.BinaryTree.Test
              8
 
             **********************************/
+        }
+
+        [TestMethod]
+        public void TestBinaryTreeConstructionFromInAndPre()
+        {
+            int[] inorder = new int[] { 4, 2, 5, 1, 3, 6 };
+            int[] pre = new int[] { 1, 2, 4, 5, 3, 6 };
+            int preIndex = 0;
+
+            Node root = BinaryTreeOperations.ConstructFromInAndPre(inorder, pre, 0, inorder.Length-1, ref preIndex);
+        }
+
+        [TestMethod]
+        public void TestPrintPostOrderFromInAndPre()
+        {
+            int[] inorder = new int[] { 4, 2, 5, 1, 3, 6 };
+            int[] pre = new int[] { 1, 2, 4, 5, 3, 6 };
+            int preIndex = 0;
+            BinaryTreeOperations.PrintPostOrderFromInAndPre(inorder, pre, 0, inorder.Length - 1, ref preIndex);
         }
 
         [TestMethod]
